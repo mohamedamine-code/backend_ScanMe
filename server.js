@@ -16,10 +16,8 @@ const componentRoutes = require('./routes/Component'); // ✅ correct import
 app.use('/components', componentRoutes);
 
 // MongoDB connection
-mongoose.connect("mongodb://10.0.100.242:27017/newdata01", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect("mongodb://10.0.100.242:27017/newdata01", 
+)
 .then(() => {
   console.log('✅ Connected to MongoDBkkkkkmmmm');
 
