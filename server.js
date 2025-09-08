@@ -16,14 +16,14 @@ const componentRoutes = require('./routes/Component'); // ✅ correct import
 app.use('/components', componentRoutes);
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb://10.0.100.242:27017/newdata01", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => {
   console.log('✅ Connected to MongoDBkkkkkmmmm');
 
-  
+
   app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
 })
 .catch(err => console.error('❌ MongoDB connection error:', err));
