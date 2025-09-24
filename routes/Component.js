@@ -32,4 +32,36 @@ router.get('/', async (req, res) => {
   }
 });
 
+// POST request
+router.post('/insert-data', (req, res) => {
+  const { _id,
+    Society_Name,
+    Number_of_Floors,
+    Technical_Room_Number,
+    Cabinet_Number,
+    Switcher,
+    Port,
+    State_Port, } = req.body;
+
+  const newComponent = Component({
+    _id,
+    Society_Name,
+    Number_of_Floors,
+    Technical_Room_Number,
+    Cabinet_Number,
+    Switcher,
+    Port,
+    State_Port,
+  });
+  newComponent.save().then(() => {
+    console.log("add sucussefuly");
+    res.status(200).json({ message: "Data Saved Succesufully" })
+  }).catch((e) => {
+    console.log("failed to add: ", e.message || e);
+    res.status(500).json({ message: "failed To add" })
+
+  })
+})
+
+
 module.exports = router;
